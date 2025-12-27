@@ -1,6 +1,5 @@
 class Solution {
     void segregate0and1(int[] arr) {
-        // code here
         int p1=0;
         int p2=arr.length-1;
         while(p1<p2){
