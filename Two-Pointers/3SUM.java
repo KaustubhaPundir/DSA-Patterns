@@ -14,7 +14,9 @@ class Solution {
                 if(temp==0){
                     res.add(Arrays.asList(nums[i], nums[p1], nums[p2]));
                     p1++;
-                    p2++;
+                    p2--;
+                    while (p1 < p2 && nums[p1] == nums[p1 - 1]) p1++;
+                    while (p1 < p2 && nums[p2] == nums[p2 + 1]) p2--;
                 }
                 else if(temp>0){
                     p2--;
