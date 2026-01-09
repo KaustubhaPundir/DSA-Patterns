@@ -1,27 +1,22 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        int p1=0;
-        int p2=1;
-        int p1res=0;
-        int p2res=nums.length;
-        int sum=nums[p1];
-        while(p2<nums.length){
-            if(sum<target ){
-                sum=sum+nums[p2];
-                p2++;
+        int res=999999;
+        int high=0;
+        int low=0;
+        int sum=0;
+        while(high<nums.length){
+            sum=sum+nums[high];
+            while(sum>=target){
+                res=Math.min(high-low+1,res);
+                sum=sum-nums[low];
+                low++;
             }
-            else if(sum>=target){
-                if(p2-p1<p2res-p1res){
-                    p2res=p2;
-                    p1res=p1;
-                }
-                sum=sum-nums[p1];
-                p1++;
-            } 
+            high++;
         }
-        if(sum<target){
+        if(res==999999){
             return 0;
         }
-        return p2res-p1res;
+        return res;
+
     }
 }
