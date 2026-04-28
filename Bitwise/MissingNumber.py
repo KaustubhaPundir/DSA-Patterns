@@ -9,3 +9,12 @@ class Solution(object):
         return ans
 
         
+class Solution(object):
+    def missingNumber(self, nums):
+        n=len(nums)
+        ans=(n*(n+1))/2
+        for i in nums:
+            ans=ans-i
+        return ans
+
+        
